@@ -28,8 +28,16 @@ export const VideoContainer = styled.div`
 
   & video {
     object-fit: cover;
+    &::-webkit-media-controls {
+      display: none !important;
+    }
+    &::-webkit-media-controls-enclosure {
+      display: none !important;
+    }
   }
 `;
+
+
 
 export const BannerTitle = styled(motion.h1)`
   position: absolute;
@@ -62,4 +70,6 @@ export const BannerTitle = styled(motion.h1)`
     line-height: .68125;
     overflow: hidden;
   `};
+
+
 `;

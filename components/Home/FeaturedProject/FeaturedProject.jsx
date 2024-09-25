@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { motion, useAnimation } from 'framer-motion';
 import { useMenuContext } from '../../../context/menu';
@@ -36,6 +36,7 @@ const FeaturedProject = () => {
   const isTabletView = useMediaQuery(
     ({ breakpoints }) => `(max-width:${breakpoints.sizes.tablet}px)`
   );
+  const videoRef = useRef(null);
 
   const handleMouseEnter = React.useCallback(() => {
     addCursorBorder();
@@ -65,11 +66,33 @@ const FeaturedProject = () => {
     controlsArrow.start({ x: isTabletView ? -25.19 : -33 });
   }, [removeCursorBorder, controlsInfo, controlsArrow, isTabletView]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // animate arrow programmatically because initial prop was not working properly.
-    // I probably did something wrong :P
     controlsArrow.start({ x: isTabletView ? -25.19 : -33 });
   }, [controlsArrow, isTabletView]);
+
+  useEffect(() => {
+    const playVideo = () => {
+      if (videoRef.current) {
+        videoRef.current.play().catch(error => {
+          console.error("Error attempting to play video:", error);
+        });
+      }
+    };
+
+    playVideo();
+
+    const handleTouchStart = () => {
+      playVideo();
+      document.removeEventListener('touchstart', handleTouchStart);
+    };
+
+    document.addEventListener('touchstart', handleTouchStart);
+
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart);
+    };
+  }, []);
 
   return (
     <ContentSection>
@@ -99,7 +122,15 @@ const FeaturedProject = () => {
                 </ProjectTitle>
               </ProjectInfo>
               <VideoPreview>
-                <video loop autoPlay muted src="videos/featured-video.mp4" />
+                <video 
+                  ref={videoRef}
+                  loop 
+                  muted 
+                  playsInline
+                  autoPlay
+                  preload="auto"
+                  src="videos/featured-video.mp4" 
+                />
               </VideoPreview>
             </ProjectAnchor>
           </Link>

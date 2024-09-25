@@ -118,6 +118,14 @@ export const VideoPreview = styled.div`
 
   & video {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    &::-webkit-media-controls {
+      display: none !important;
+    }
+    &::-webkit-media-controls-enclosure {
+      display: none !important;
+    }
   }
 
   ${({ theme }) => theme.breakpoints.small`

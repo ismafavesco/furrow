@@ -16,6 +16,7 @@ const CanvasEraser = (props, ref) => {
   } = props;
 
   const [canvasEraser, setCanvasEraser] = React.useState(null);
+  const [isDesktop, setIsDesktop] = React.useState(true);
   const canvasRef = React.useRef(null);
   const componentRef = useForkRef(canvasRef, ref);
 
@@ -43,17 +44,34 @@ const CanvasEraser = (props, ref) => {
   );
 
   React.useEffect(() => {
-    const canvas = canvasEraserFactory();
-    setCanvasEraser(canvas);
+    const checkDevice = () => {
+      setIsDesktop(window.innerWidth > 768); // Adjust this breakpoint as needed
+    };
+
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+
+    return () => window.removeEventListener('resize', checkDevice);
   }, []);
 
   React.useEffect(() => {
-    if (canvasEraser) {
+    if (isDesktop) {
+      const canvas = canvasEraserFactory();
+      setCanvasEraser(canvas);
+    }
+  }, [isDesktop]);
+
+  React.useEffect(() => {
+    if (canvasEraser && isDesktop) {
       canvasEraser.init(canvasRef.current, options);
     }
-  }, [canvasEraser, options]);
+  }, [canvasEraser, options, isDesktop]);
 
-  return <canvas ref={componentRef} {...other} />;
+  if (!isDesktop) {
+    return null; // Don't render anything on mobile
+  }
+
+  return <canvas ref={componentRef} width={width} height={height} {...other} />;
 };
 
 export default React.forwardRef(CanvasEraser);
