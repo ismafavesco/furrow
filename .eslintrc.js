@@ -1,27 +1,27 @@
 module.exports = {
-  root: true, // Make sure eslint picks up the config at the root of the directory
+  root: true,
   parserOptions: {
-    ecmaVersion: 2020, // Use the latest ecmascript standard
-    sourceType: 'module', // Allows using import/export statements
+    ecmaVersion: 2020,
+    sourceType: 'module',
     ecmaFeatures: {
-      jsx: true, // Enable JSX since we're using React
+      jsx: true,
     },
   },
   settings: {
     react: {
-      version: 'detect', // Automatically detect the react version
+      version: 'detect',
     },
   },
   env: {
     es2020: true,
-    browser: true, // Enables browser globals like window and document
-    node: true, // Enables Node.js global variables and Node.js scoping.
+    browser: true,
+    node: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:prettier/recommended', // Make this the last element so prettier config overrides other formatting rules
+    'plugin:prettier/recommended',
   ],
   plugins: ['react', 'react-hooks', 'prettier', 'simple-import-sort'],
   rules: {
@@ -29,10 +29,11 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/no-unknown-property': ['error', { ignore: ['jsx', 'global'] }],
     'prettier/prettier': [
       'error',
-      { singleQuote: true },
+      { singleQuote: true, semi: true },
       { usePrettierrc: true },
-    ], // Use our .prettierrc file as source
+    ],
   },
 };

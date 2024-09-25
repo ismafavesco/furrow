@@ -39,7 +39,7 @@ const CanvasEraser = (props, ref) => {
       size,
       width,
       height,
-    ],
+    ]
   );
 
   React.useEffect(() => {

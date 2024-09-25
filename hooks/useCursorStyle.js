@@ -16,7 +16,7 @@ const useCursorStyle = () => {
     color => {
       dispatch({ type: 'ADD_CURSOR_COLOR', payload: color });
     },
-    [dispatch],
+    [dispatch]
   );
 
   const resetCursorColor = React.useCallback(() => {
@@ -27,7 +27,7 @@ const useCursorStyle = () => {
     coordinates => {
       dispatch({ type: 'LOCK_CURSOR_POSITION', payload: coordinates });
     },
-    [dispatch],
+    [dispatch]
   );
 
   return {

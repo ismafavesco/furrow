@@ -121,7 +121,7 @@ const factory = () => {
   const init = (source, options = {}) => {
     if (!source) {
       throw new Error(
-        'No source element provided. It must be an HTML canvas element.',
+        'No source element provided. It must be an HTML canvas element.'
       );
     }
 

@@ -34,7 +34,7 @@ const FeaturedProject = () => {
     removeCursorBorder,
   } = useCursorStyle();
   const isTabletView = useMediaQuery(
-    ({ breakpoints }) => `(max-width:${breakpoints.sizes.tablet}px)`,
+    ({ breakpoints }) => `(max-width:${breakpoints.sizes.tablet}px)`
   );
 
   const handleMouseEnter = React.useCallback(() => {

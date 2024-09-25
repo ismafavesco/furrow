@@ -20,7 +20,7 @@ const About = () => {
 
       addCursorBorder();
     },
-    [selectedItem, addCursorBorder],
+    [selectedItem, addCursorBorder]
   );
 
   const handleMouseLeave = React.useCallback(
@@ -29,7 +29,7 @@ const About = () => {
 
       removeCursorBorder();
     },
-    [selectedItem, removeCursorBorder],
+    [selectedItem, removeCursorBorder]
   );
 
   return (

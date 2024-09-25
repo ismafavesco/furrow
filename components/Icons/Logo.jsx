@@ -23,7 +23,7 @@ const Logo = props => {
       // reset the cursor color so that it uses the theme text color as default
       addCursorColor(null);
     },
-    [dispatch, addCursorColor],
+    [dispatch, addCursorColor]
   );
 
   return (

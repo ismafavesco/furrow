@@ -48,7 +48,7 @@ const Menu = () => {
     resetCursorColor,
   } = useCursorStyle();
   const isMobile = useMediaQuery(
-    ({ breakpoints }) => `(max-width:${breakpoints.sizes.small}px)`,
+    ({ breakpoints }) => `(max-width:${breakpoints.sizes.small}px)`
   );
 
   const handleAnimationComplete = React.useCallback(() => {
@@ -64,7 +64,7 @@ const Menu = () => {
       addCursorBorder();
       setRevealVideo(event.target.name);
     },
-    [addCursorBorder],
+    [addCursorBorder]
   );
 
   const handleHoverEnd = React.useCallback(() => {

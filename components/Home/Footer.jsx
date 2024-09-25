@@ -10,7 +10,7 @@ const variants = {
 
 const Footer = () => {
   const isTabletView = useMediaQuery(
-    ({ breakpoints }) => `(max-width:${breakpoints.sizes.tablet}px)`,
+    ({ breakpoints }) => `(max-width:${breakpoints.sizes.tablet}px)`
   );
 
   return (
