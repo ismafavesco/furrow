@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import useCursorStyle from '../../../hooks/useCursorStyle';
 import useWindowSize from '../../../hooks/useWindowSize';
@@ -36,7 +36,7 @@ const Banner = () => {
     const playVideo = () => {
       if (videoRef.current) {
         videoRef.current.play().catch(error => {
-          console.error("Error attempting to play video:", error);
+          console.error('Error attempting to play video:', error);
         });
       }
     };

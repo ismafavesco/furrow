@@ -75,7 +75,7 @@ const FeaturedProject = () => {
     const playVideo = () => {
       if (videoRef.current) {
         videoRef.current.play().catch(error => {
-          console.error("Error attempting to play video:", error);
+          console.error('Error attempting to play video:', error);
         });
       }
     };
@@ -122,14 +122,14 @@ const FeaturedProject = () => {
                 </ProjectTitle>
               </ProjectInfo>
               <VideoPreview>
-                <video 
+                <video
                   ref={videoRef}
-                  loop 
-                  muted 
+                  loop
+                  muted
                   playsInline
                   autoPlay
                   preload="auto"
-                  src="videos/featured-video.mp4" 
+                  src="videos/featured-video.mp4"
                 />
               </VideoPreview>
             </ProjectAnchor>

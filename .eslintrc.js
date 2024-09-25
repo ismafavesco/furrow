@@ -22,6 +22,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
+    'next',
+    'next/core-web-vitals',
   ],
   plugins: ['react', 'react-hooks', 'prettier', 'simple-import-sort'],
   rules: {
@@ -30,10 +32,9 @@ module.exports = {
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/no-unknown-property': ['error', { ignore: ['jsx', 'global'] }],
-    'prettier/prettier': [
-      'error',
-      { singleQuote: true, semi: true },
-      { usePrettierrc: true },
-    ],
+    'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+    'no-unused-vars': 'warn',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
   },
 };

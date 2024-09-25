@@ -9,7 +9,6 @@ import useMediaQuery from '../../hooks/useMediaQuery';
 import routes from '../../utils/constants/routes';
 import Arrow from '../Icons/Arrow';
 
-
 import {
   listVariants,
   listItemsVariants,

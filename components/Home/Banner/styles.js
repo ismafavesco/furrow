@@ -37,8 +37,6 @@ export const VideoContainer = styled.div`
   }
 `;
 
-
-
 export const BannerTitle = styled(motion.h1)`
   position: absolute;
   bottom: -93px;
@@ -70,6 +68,4 @@ export const BannerTitle = styled(motion.h1)`
     line-height: .68125;
     overflow: hidden;
   `};
-
-
 `;
